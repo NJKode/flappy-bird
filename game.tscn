@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://hydlj5exht5u"]
+[gd_scene load_steps=3 format=3 uid="uid://hydlj5exht5u"]
 
 [ext_resource type="PackedScene" uid="uid://s77bjup4ghhp" path="res://bird.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c2cckr2sqw3ae" path="res://game.gd" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://dhndctq71xnou" path="res://obstacle.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e2o6t")
@@ -11,11 +10,9 @@ script = ExtResource("1_e2o6t")
 position = Vector2(100, 450)
 scale = Vector2(2, 2)
 
-[node name="Obstacle" parent="." instance=ExtResource("3_feb5d")]
-
 [node name="PipeRespawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
-[connection signal="area_entered" from="Bird" to="." method="_on_bird_area_entered"]
+[connection signal="hit_pipe" from="Bird" to="." method="_on_bird_hit_pipe"]
 [connection signal="timeout" from="PipeRespawnTimer" to="." method="_on_pipe_respawn_timer_timeout"]
