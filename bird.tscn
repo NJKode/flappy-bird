@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://s77bjup4ghhp"]
+
+[ext_resource type="Script" uid="uid://cvgmo77f26adw" path="res://bird.gd" id="1_crnqq"]
+[ext_resource type="Texture2D" uid="uid://b8rakek3nl4ba" path="res://sprites/bird.png" id="1_g5k2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crnqq"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88tq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchwj"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ljjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88tq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88tq")
+}],
+"loop": false,
+"name": &"flap",
+"speed": 4.0
+}]
+
+[node name="Bird" type="Area2D"]
+script = ExtResource("1_crnqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_crnqq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ljjq")
