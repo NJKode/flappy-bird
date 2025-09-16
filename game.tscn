@@ -12,7 +12,5 @@ scale = Vector2(2, 2)
 
 [node name="PipeRespawnTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
-[connection signal="hit_pipe" from="Bird" to="." method="_on_bird_hit_pipe"]
 [connection signal="timeout" from="PipeRespawnTimer" to="." method="_on_pipe_respawn_timer_timeout"]

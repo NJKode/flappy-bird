@@ -13,9 +13,10 @@ var speed = 200
 
 func _init(initial_speed: int) -> void:
 	speed = initial_speed
-	print("initialized")
 
 func _ready() -> void:
+	Events.game_over.connect(_on_game_over)
+
 	var initial_x_position = screen_size.x + 50
 	self.position.x = initial_x_position
 
@@ -34,10 +35,11 @@ func _ready() -> void:
 	self.add_child(top_pipe)
 	self.add_child(bottom_pipe)
 
+func _on_game_over():
+	speed = 0
 
 func _process(delta: float) -> void:
 	position.x -= speed * delta
-	# print(position.x)
 
 	if position.x <= -50:
 		self.queue_free()
