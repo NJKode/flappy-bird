@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://hydlj5exht5u"]
+[gd_scene load_steps=4 format=3 uid="uid://hydlj5exht5u"]
 
 [ext_resource type="PackedScene" uid="uid://s77bjup4ghhp" path="res://bird.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c2cckr2sqw3ae" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://t5euvuatax77" path="res://Floor.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e2o6t")
+
+[node name="Floor" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(0, 860)
 
 [node name="Bird" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(100, 450)
