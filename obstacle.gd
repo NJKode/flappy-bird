@@ -13,6 +13,7 @@ var speed = 200
 
 func _init(initial_speed: int) -> void:
 	speed = initial_speed
+	z_index = -1
 
 func _ready() -> void:
 	Events.game_over.connect(_on_game_over)

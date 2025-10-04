@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4wbj4bncgpbf"]
+
+[ext_resource type="Texture2D" uid="uid://d37r1p4fofhbt" path="res://sprites/grass.png" id="1_kl2qe"]
+
+[node name="Grass" type="Sprite2D"]
+texture_repeat = 2
+texture = ExtResource("1_kl2qe")
+region_enabled = true
+region_rect = Rect2(0, 1, 640, 32)
