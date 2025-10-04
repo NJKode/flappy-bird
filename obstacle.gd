@@ -16,6 +16,9 @@ func _init(initial_speed: int) -> void:
 
 func _ready() -> void:
 	Events.game_over.connect(_on_game_over)
+	
+	top_pipe.name = 'TopPipe'
+	bottom_pipe.name = 'BottomPipe'
 
 	var initial_x_position = screen_size.x + 50
 	self.position.x = initial_x_position

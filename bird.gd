@@ -30,8 +30,14 @@ func _process(delta: float):
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("pipe"):
-		game_over = true
-		vertical_speed = 0
-		Events.game_over.emit()
-	pass # Replace with function body.
+	if game_over:
+		return
+
+	if ['TopPipe', 'BottomPipe'].has(area.name):
+		_start_game_over_process()
+
+
+func _start_game_over_process():
+	game_over = true
+	vertical_speed = 0
+	Events.game_over.emit()
