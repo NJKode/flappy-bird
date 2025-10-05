@@ -9,15 +9,7 @@ const PIPE_VERTICAL_PADDING = 20
 @onready var bottom_pipe: Area2D = pipe.instantiate()
 @onready var screen_size = get_viewport_rect().size
 
-var speed = 200
-
-func _init(initial_speed: int) -> void:
-	speed = initial_speed
-	z_index = -1
-
 func _ready() -> void:
-	Events.game_over.connect(_on_game_over)
-	
 	top_pipe.name = 'TopPipe'
 	bottom_pipe.name = 'BottomPipe'
 
@@ -39,10 +31,9 @@ func _ready() -> void:
 	self.add_child(top_pipe)
 	self.add_child(bottom_pipe)
 
-func _on_game_over():
-	speed = 0
 
 func _process(delta: float) -> void:
+	var speed = GameState.game_speed
 	position.x -= speed * delta
 
 	if position.x <= -50:
