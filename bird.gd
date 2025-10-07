@@ -1,6 +1,7 @@
 extends Area2D
 
 const MAX_HEIGHT: float = -20.0
+const INITIAL_POSITION: Vector2 = Vector2(100.0, 450.0)
 
 @export var max_fall_speed = 800
 @export var acceleration = 15
@@ -9,16 +10,28 @@ const MAX_HEIGHT: float = -20.0
 @onready var MIN_HEIGHT = get_viewport_rect().size.y + 100
 
 var vertical_speed: float = 0.0
-var game_over = false
+
+func _ready() -> void:
+	_reset()
 
 
 func _process(delta: float):
+	if GameState.state == GameState.State.STOPPED:
+		return
+
 	_fall(delta)
 
-	if Input.is_action_just_pressed("flap") and not game_over:
+	if (
+		Input.is_action_just_pressed("flap") and
+		GameState.state != GameState.State.GAME_OVER
+	):
 		_fly_up(delta)
 
 	_rotate_to_speed()
+
+
+func _reset():
+	self.position = INITIAL_POSITION
 
 
 func _rotate_to_speed():
@@ -43,7 +56,7 @@ func _fly_up(_delta):
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if game_over:
+	if GameState.state != GameState.State.PLAYING:
 		return
 
 	if ['Floor', 'TopPipe', 'BottomPipe'].has(area.name):
@@ -51,6 +64,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _start_game_over_process():
-	game_over = true
 	vertical_speed = 0
 	Events.game_over.emit()

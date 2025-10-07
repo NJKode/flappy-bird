@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvpnynt0wo3dj"]
+
+[ext_resource type="Script" uid="uid://dqrlnd6leac6m" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://hydlj5exht5u" path="res://game.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bmp2cfx7dcbq3" path="res://UI/TitleScreen.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cv6lrowoi6k66" path="res://UI/GameOver.tscn" id="4_1bvp3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0xm2m")
+
+[node name="Game" parent="." instance=ExtResource("2_h2yge")]
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_h2yge")]
+script = null
+
+[node name="GameOver" parent="." instance=ExtResource("4_1bvp3")]
+visible = false

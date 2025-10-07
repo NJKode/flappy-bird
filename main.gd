@@ -1,0 +1,17 @@
+extends Node
+
+@onready var title_screen = $TitleScreen
+@onready var game_over_screen = $GameOver
+
+func _ready() -> void:
+	var button: BaseButton = title_screen.get_node("StartGame")
+	button.pressed.connect(_on_start_game)
+	Events.game_over.connect(_on_game_over)
+
+
+func _on_game_over():
+	game_over_screen.show()
+
+func _on_start_game() -> void:
+	title_screen.hide()
+	GameState.start_game()
