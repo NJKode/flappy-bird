@@ -10,6 +10,7 @@ const PIPE_VERTICAL_PADDING = 20
 @onready var screen_size = get_viewport_rect().size
 
 func _ready() -> void:
+	Events.reset_game.connect(_on_reset)
 	top_pipe.name = 'TopPipe'
 	bottom_pipe.name = 'BottomPipe'
 
@@ -38,3 +39,7 @@ func _process(delta: float) -> void:
 
 	if position.x <= -50:
 		self.queue_free()
+
+
+func _on_reset():
+	self.queue_free()
