@@ -12,7 +12,7 @@ const INITIAL_POSITION: Vector2 = Vector2(100.0, 450.0)
 var vertical_speed: float = 0.0
 
 func _ready() -> void:
-	_reset()
+	reset()
 
 
 func _process(delta: float):
@@ -30,7 +30,8 @@ func _process(delta: float):
 	_rotate_to_speed()
 
 
-func _reset():
+func reset():
+	print("reset")
 	self.position = INITIAL_POSITION
 
 

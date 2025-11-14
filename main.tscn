@@ -11,7 +11,6 @@ script = ExtResource("1_0xm2m")
 [node name="Game" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="TitleScreen" parent="." instance=ExtResource("3_h2yge")]
-script = null
 
 [node name="GameOver" parent="." instance=ExtResource("4_1bvp3")]
 visible = false

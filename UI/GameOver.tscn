@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over"
 
-[node name="Button" type="Button" parent="."]
+[node name="Restart" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,7 +36,7 @@ offset_right = 50.5
 offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Reset Game"
+text = "Restart game"
 
 [node name="Final Score" type="Label" parent="."]
 layout_mode = 1

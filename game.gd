@@ -2,9 +2,9 @@ extends Node2D
 
 func _ready() -> void:
 	Events.game_over.connect(_stop_game)
-	_start_game()
 
-func _start_game():
+func start_game():
+	$Bird.reset()
 	$PipeRespawnTimer.start()
 
 func _stop_game():
