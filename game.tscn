@@ -21,4 +21,26 @@ scale = Vector2(2, 2)
 [node name="PipeRespawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="GameCountdownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ReadyLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = 453.0
+offset_right = 334.0
+offset_bottom = 476.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Ready..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="PipeRespawnTimer" to="." method="_on_pipe_respawn_timer_timeout"]
+[connection signal="timeout" from="GameCountdownTimer" to="." method="_on_game_countdown_timer_timeout"]

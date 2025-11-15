@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _process(delta: float):
-	if GameState.state == GameState.State.STOPPED:
+	if GameState.state != GameState.State.PLAYING:
 		return
 
 	_fall(delta)
@@ -31,7 +31,7 @@ func _process(delta: float):
 
 
 func reset():
-	print("reset")
+	self.rotation = 0
 	self.position = INITIAL_POSITION
 
 

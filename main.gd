@@ -23,5 +23,5 @@ func _reset_game() -> void:
 func _on_start_game() -> void:
 	title_screen.hide()
 	game_over_screen.hide()
-	GameState.start_game()
+	GameState.start_countdown()
 	$Game.start_game()

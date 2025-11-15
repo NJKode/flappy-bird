@@ -2,6 +2,7 @@ extends Node
 
 enum State {
 	STOPPED,
+	PAUSED,
 	PLAYING,
 	GAME_OVER
 }
@@ -14,6 +15,10 @@ var state = State.STOPPED
 
 func _ready() -> void:
 	Events.game_over.connect(_on_game_over)
+
+func start_countdown():
+	state = State.PAUSED
+	game_speed = 0
 
 func start_game():
 	state = State.PLAYING
