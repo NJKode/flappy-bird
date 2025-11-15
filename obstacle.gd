@@ -5,12 +5,16 @@ class_name Obstacle extends Node2D
 var pipe = load("res://pipe.tscn")
 const PIPE_VERTICAL_PADDING = 20
 
+var scored = false
+signal score_point
+
 @onready var top_pipe: Area2D = pipe.instantiate()
 @onready var bottom_pipe: Area2D = pipe.instantiate()
 @onready var screen_size = get_viewport_rect().size
 
 func _ready() -> void:
 	Events.reset_game.connect(_on_reset)
+	self.z_index = -1
 	top_pipe.name = 'TopPipe'
 	bottom_pipe.name = 'BottomPipe'
 
@@ -36,6 +40,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var speed = GameState.game_speed
 	position.x -= speed * delta
+
+	if not scored and position.x <= 40:
+		scored = true
+		score_point.emit()
 
 	if position.x <= -50:
 		self.queue_free()
