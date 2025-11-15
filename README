@@ -1,0 +1,5 @@
+# Flappy Bird
+
+Playing around with signals and stuff for game state, but this ended up being extremely messy. 
+
+More thought needs to go into code heirarchy + composition, etc.
